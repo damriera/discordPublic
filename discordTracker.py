@@ -1,10 +1,15 @@
 import requests
 
+"""
+This program takes messages from a discord channel and keep tracks of new messages by printing it onto the user's terminal.
+"""
+
 def retrieve_messages(channelid):
     
-    # Retrieve messages from a discord channel
-    # send the messages retrieved to the print_messages() function.
-    
+    """
+    Retrieve messages from a discord channel
+    send the messages retrieved to the print_messages() function.
+    """
     
     headers = {
         'authorization': '(put channel authorization here)',
@@ -25,10 +30,12 @@ def retrieve_messages(channelid):
 
 def print_messages(channelid, jsonn):
     
-    # Takes the messages from the same channel as the channel used for jsonn and puts it in checker 
-    # if the top message id from checker isn't the same as the top message id from jsonn, then a new message was sent
-    # if a new message was sent, prints it in the terminal with print_new_messages(), then send back checker.
-    
+    """
+    Takes the messages from the same channel as the channel used for jsonn and puts it in checker 
+    if the top message id from checker isn't the same as the top message id from jsonn, then a new message was sent
+    if a new message was sent, prints it in the terminal with print_new_messages(), then send back checker.
+    """
+
     headers = {
         'authorization': '(put channel authorization here)',
         'X-RateLimit-Limit': '45',
@@ -50,6 +57,11 @@ def print_messages(channelid, jsonn):
     return checker
 
 def print_new_messages(messages):
+
+	"""
+	used to print new messages.
+	"""
+
     for value in messages:
         print(f"Message from {value['author']['username']}:")
         print(value['content'], "\n")
