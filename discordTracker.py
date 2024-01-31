@@ -14,7 +14,7 @@ def retrieve_messages(channelid):
     """
     
     headers = {
-        'authorization': 'put your channel authorization here',
+        'authorization': 'put channel authorization here',
         'X-RateLimit-Limit': '45',
         'X-RateLimit-Reset-After': '1'
     }
@@ -39,7 +39,7 @@ def print_messages(channelid, jsonn):
     """
 
     headers = {
-        'authorization': 'put your channel authorization here',
+        'authorization': 'put channel authorization here',
         'X-RateLimit-Limit': '45',
         'X-RateLimit-Reset-After': '1'
     }
@@ -69,6 +69,12 @@ def print_messages(channelid, jsonn):
                 print(f"Message from {value['author']['username']}:")      
                 print(value['content'], "\n") 
                 k += 1
+                try:
+                    with open("Tracker.json","a") as myfile:
+                        json.dump(value, myfile, indent=2)
+                        myfile.write("\n")
+                except FileNotFoundError:
+                    print("Error while oppening file.")
             else:
                 break
     return checker
