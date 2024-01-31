@@ -3,7 +3,7 @@ import json
 import time
 
 """
-This program takes messages from a discord channel and keep tracks of new messages by printing it onto the user's terminal.
+This program takes messages from a discord channel and keep tracks of new messages by adding it into a json file.
 """
 
 def retrieve_messages(channelid):
