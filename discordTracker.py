@@ -35,7 +35,7 @@ def print_messages(channelid, jsonn):
     """
     Takes the messages from the same channel as the channel used for jsonn and puts it in checker 
     if the top message id from checker isn't the same as the top message id from jsonn, then a new message was sent
-    if a new message was sent, prints it in the terminal, then send back checker.
+    if a new message was sent, prints it in the terminal, adding it to the json file, then send back checker.
     """
 
     headers = {
